@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<!--Contact form-->
+<div class="container text-center mt-3">
+    <div class="row justify-content-center">
+        <div class="col-6 shadow">
+            <div>
+                <h1>Contact</h1>
+                <h4>Merci de Nous Contacter</h4>
+                <p> </p>
+                <form method="post">
+                    {% csrf_token %}
+                        {{form.first_name|as_crispy_field}}
+                        {{form.last_name|as_crispy_field}}
+                        {{form.email_address|as_crispy_field}}
+                        {{form.message|as_crispy_field}}
+                        <div class="form-group mt-3" id="signup-button">
+                            <button type="submit" class="btn">Envoyer</button>
+                        </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
